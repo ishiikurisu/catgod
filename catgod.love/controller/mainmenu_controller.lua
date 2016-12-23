@@ -1,5 +1,6 @@
 local mainmenu_view = require "view/mainmenu_view"
 local mainmenu_model = require "model/mainmenu_model"
+local game_controller = require "controller/game_controller"
 local mainmenu_controller = { }
 
 mainmenu_controller.construct = function()
