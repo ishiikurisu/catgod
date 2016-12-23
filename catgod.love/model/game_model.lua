@@ -49,9 +49,6 @@ game_model.new = function()
     end
   end
 
-  -- Collisions
-  -- ----------
-
   self.check_collisions = function()
     local surviving = { }
 
@@ -66,6 +63,11 @@ game_model.new = function()
     end
 
     self.stuff = surviving
+  end
+
+  self.is_game_over = function()
+    self.gameover = not (self.health > 0)
+    return self.gameover
   end
 
   self.update = function(dt)

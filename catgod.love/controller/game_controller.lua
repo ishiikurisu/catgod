@@ -1,5 +1,6 @@
 local game_model = require "model/game_model"
 local game_view = require "view/game_view"
+local gameover_controller = require "controller/gameover_controller"
 local game_controller = { }
 
 game_controller.construct = function()
@@ -28,6 +29,12 @@ game_controller.new = function()
     self.model.update_cat(dt)
     self.model.update_stuff(dt)
     self.model.check_collisions()
+
+    -- Is game ended?
+    self.model.is_game_over()
+    if self.model.gameover then
+      return gameover_controller.new()
+    end
 
     -- User controlled changes
     for _, action in pairs(self.actions) do
