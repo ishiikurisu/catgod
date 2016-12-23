@@ -53,6 +53,13 @@ gameover_controller.new = function(score)
     end
 
     self.save = function()
+        local name = ""
+
+        for _, letter in pairs(self.player) do
+            name = name .. util.alphabet[letter]
+        end
+
+        util.store(name, self.score)
     end
 
     self.draw = function()

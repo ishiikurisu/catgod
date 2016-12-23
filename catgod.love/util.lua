@@ -54,4 +54,10 @@ util.alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
                   "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
                   "U", "V", "W", "X", "Y", "Z" }
 
+util.save_file = "scoreboard.txt"
+
+function util.store(player, score)
+  love.filesystem.append(util.save_file, player .. " " .. score)
+end
+
 return util
