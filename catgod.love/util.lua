@@ -20,6 +20,10 @@ function util.pressed(thing, action)
   return fact
 end
 
+function util.check_collision(cat, thing)
+  
+end
+
 util.gravity = 1000
 
 return util

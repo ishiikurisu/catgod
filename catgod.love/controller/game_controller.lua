@@ -27,6 +27,7 @@ game_controller.new = function()
     -- Automatic changes
     self.model.update_cat(dt)
     self.model.update_stuff(dt)
+    self.model.check_collisions()
 
     -- User controlled changes
     for _, action in pairs(self.actions) do

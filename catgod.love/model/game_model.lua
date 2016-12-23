@@ -48,6 +48,14 @@ game_model.new = function()
     -- Should old stuff disappear?
   end
 
+  self.check_collisions = function()
+    for i, it in ipairs(self.stuff) then
+      if util.check_collision(self.cat, it) then
+        self.stuff[i] = nil
+      end
+    end
+  end
+
   self.update = function(dt)
     self.update_cat(dt)
     self.update_stuff(dt)

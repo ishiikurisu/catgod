@@ -10,7 +10,7 @@ game_view.new = function()
   end
 
   self.drawCat = function(cat)
-    local x = cat.x - cat.width/2
+    local x = cat.x
     local y = cat.y
     local width = cat.width
     local height = 10

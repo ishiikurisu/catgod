@@ -19,11 +19,11 @@ cat_entity.new = function()
     self.x = self.x + self.direction * self.speed * dt
 
     -- Changing direction
-    local amplitude = self.x + self.direction * self.width / 2
+    local amplitude = self.x + self.width
     if amplitude >= love.graphics.getWidth() then
       -- reached far right
       self.direction = -1
-    elseif amplitude <= 0 then
+    elseif self.x <= 0 then
       -- reached far left
       self.direction = 1
     end
