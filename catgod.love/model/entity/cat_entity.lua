@@ -6,6 +6,7 @@ cat_entity.construct = function()
   self.x = 300
   self.y = love.graphics.getHeight() - 30
   self.width = 64
+  self.height = 10
   self.direction = -1
   self.speed = 50
 

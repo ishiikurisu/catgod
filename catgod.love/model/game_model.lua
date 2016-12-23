@@ -8,6 +8,7 @@ game_model.construct = function()
   self.cat = cat_entity.new()
   self.stuff = { }
   self.wait_time = 0
+  self.score = 0
 
   return self
 end
@@ -49,11 +50,17 @@ game_model.new = function()
   end
 
   self.check_collisions = function()
-    for i, it in ipairs(self.stuff) then
+    local surviving = { }
+
+    for i, it in pairs(self.stuff) do
       if util.check_collision(self.cat, it) then
-        self.stuff[i] = nil
+         self.score = self.score + 1
+      else
+        table.insert(surviving, it)
       end
     end
+
+    self.stuff = surviving
   end
 
   self.update = function(dt)

@@ -13,7 +13,7 @@ game_view.new = function()
     local x = cat.x
     local y = cat.y
     local width = cat.width
-    local height = 10
+    local height = cat.height
     love.graphics.setColor(209, 66, 141)
     love.graphics.rectangle("fill", x, y, width, height)
   end
