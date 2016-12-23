@@ -20,4 +20,6 @@ function util.pressed(thing, action)
   return fact
 end
 
+util.gravity = 1000
+
 return util

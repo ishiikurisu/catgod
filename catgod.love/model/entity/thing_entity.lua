@@ -30,7 +30,12 @@ thing_entity.new = function()
   local self = thing_entity.construct()
 
   self.update = function(dt)
-    self.x = self.x + self.direction * self.speed * dt
+    if self.pressed then
+      self.y = self.y + self.speed * dt + util.gravity * dt * dt
+      self.speed = self.speed + util.gravity * dt
+    else
+      self.x = self.x + self.direction * self.speed * dt
+    end
   end
 
   return self

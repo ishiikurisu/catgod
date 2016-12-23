@@ -19,8 +19,9 @@ game_model.new = function()
   -- =======================
   self.press = function(action)
     for i, thing in ipairs(self.stuff) do
-      if util.pressed(thing, action) then
+      if util.pressed(thing, action) and thing.pressed == false then
         self.stuff[i].pressed = true
+        self.stuff[i].speed = 0
       end
     end
   end
