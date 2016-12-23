@@ -15,6 +15,8 @@ scoreboard_controller.construct = function()
         table.insert(self.scoreboard, stuff)
     end
 
+    table.sort(self.scoreboard, function(this, that) return tonumber(this[2]) > tonumber(that[2]) end)
+
     return self
 end
 

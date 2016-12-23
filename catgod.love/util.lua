@@ -57,7 +57,7 @@ util.alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
 util.save_file = "scoreboard.txt"
 
 function util.store(player, score)
-  love.filesystem.append(util.save_file, player .. " " .. score)
+  love.filesystem.append(util.save_file, player .. " " .. score .. "\n")
 end
 
 function util.splitstring(inputstr, sep)
