@@ -33,7 +33,7 @@ game_controller.new = function()
     -- Is game ended?
     self.model.is_game_over()
     if self.model.gameover then
-      return gameover_controller.new()
+      return gameover_controller.new(self.model.score)
     end
 
     -- User controlled changes

@@ -1,8 +1,9 @@
 local gameover_controller = { }
 
-gameover_controller.new = function()
+gameover_controller.new = function(score)
   local self = { }
   self.actions = { }
+  self.score = score
 
   self.push = function(key)
       table.insert(self.actions, key)
@@ -22,6 +23,7 @@ gameover_controller.new = function()
   self.draw = function()
     love.graphics.setColor(255, 0, 0)
     love.graphics.print("GAME OVER", love.graphics.getWidth()/2, love.graphics.getHeight()/2)
+    love.graphics.print("SCORE: " .. self.score, love.graphics.getWidth()/2, love.graphics.getHeight()/2 + 30)
   end
 
   return self
