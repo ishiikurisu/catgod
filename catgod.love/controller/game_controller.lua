@@ -23,8 +23,12 @@ game_controller.new = function()
   end
 
   self.update = function(dt)
+    -- Automatic changes
+    self.model.update_cat(dt)
+
+    -- User controlled changes
     for _, action in pairs(self.actions) do
-      
+
     end
 
     self.actions = { }
@@ -36,6 +40,8 @@ game_controller.new = function()
 
   self.draw = function()
     self.view.draw()
+    self.view.drawBackground()
+    self.view.drawCat(self.model.cat)
   end
 
   return self

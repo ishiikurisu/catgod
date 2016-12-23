@@ -4,7 +4,7 @@ local game_model = { }
 game_model.construct = function()
   local self = { }
 
-  -- TODO Implement cat
+  self.cat = cat_entity.new()
 
   return self
 end
@@ -17,7 +17,8 @@ game_model.new = function()
 
   -- Automatic changes
   -- =================
-  self.update_cat = function()
+  self.update_cat = function(dt)
+    self.cat.update(dt)
   end
 
   return self
