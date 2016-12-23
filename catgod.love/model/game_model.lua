@@ -1,3 +1,4 @@
+local cat_entity = require "model/entity/cat_entity"
 local game_model = { }
 
 game_model.construct = function()
