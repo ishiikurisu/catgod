@@ -18,13 +18,14 @@ game_controller.new = function()
   -- Update methods
   -- ==============
 
-  self.push = function(key)
-    table.insert(self.actions, key)
+  self.press = function(x, y)
+    -- TODO Implement mouse press
   end
 
   self.update = function(dt)
     -- Automatic changes
     self.model.update_cat(dt)
+    self.model.update_stuff(dt)
 
     -- User controlled changes
     for _, action in pairs(self.actions) do
@@ -42,6 +43,7 @@ game_controller.new = function()
     self.view.draw()
     self.view.drawBackground()
     self.view.drawCat(self.model.cat)
+    self.view.drawStuff(self.model.stuff)
   end
 
   return self

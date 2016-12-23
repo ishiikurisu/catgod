@@ -17,6 +17,12 @@ game_view.new = function()
     love.graphics.rectangle("fill", x, y, width, height)
   end
 
+  self.drawStuff = function(stuff)
+    for _, it in pairs(stuff) do
+      love.graphics.rectangle("fill", it.x, it.y, it.width, it.height)
+    end
+  end
+
   return self
 end
 
