@@ -50,9 +50,9 @@ end
 
 util.gravity = 1000
 
-util.alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J",
-                  "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
-                  "U", "V", "W", "X", "Y", "Z" }
+util.alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I",
+                  "J", "K", "L", "M", "N", "O", "P", "Q", "R",
+                  "S", "T", "U", "V", "W", "X", "Y", "Z" }
 
 util.save_file = "scoreboard.txt"
 
