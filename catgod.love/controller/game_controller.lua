@@ -19,7 +19,8 @@ game_controller.new = function()
   -- ==============
 
   self.press = function(x, y)
-    -- TODO Implement mouse press
+    local action = { x = x, y = y }
+    table.insert(self.actions, action)
   end
 
   self.update = function(dt)
@@ -29,7 +30,7 @@ game_controller.new = function()
 
     -- User controlled changes
     for _, action in pairs(self.actions) do
-
+      self.model.press(action)
     end
 
     self.actions = { }

@@ -21,6 +21,7 @@ thing_entity.construct = function()
   self.width = 16
   self.height = 16
   self.speed = love.math.random(2, 16)
+  self.pressed = false
 
   return self
 end

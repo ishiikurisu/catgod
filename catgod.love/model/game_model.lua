@@ -17,6 +17,13 @@ game_model.new = function()
 
   -- User controlled changes
   -- =======================
+  self.press = function(action)
+    for i, thing in ipairs(self.stuff) do
+      if util.pressed(thing, action) then
+        self.stuff[i].pressed = true
+      end
+    end
+  end
 
   -- Automatic changes
   -- =================
@@ -29,7 +36,7 @@ game_model.new = function()
     self.wait_time = self.wait_time - dt
     if self.wait_time <= 0 then
       table.insert(self.stuff, thing_entity.new())
-      self.wait_time = love.math.random() * 5
+      self.wait_time = 1 + love.math.random() * 5
     end
 
     -- Update stuff

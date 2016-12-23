@@ -1,4 +1,5 @@
 start = require "controller/mainmenu_controller"
+util = require "util"
 
 function love.load()
   current_controller = start.new()
