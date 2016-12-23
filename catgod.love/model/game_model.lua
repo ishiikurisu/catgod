@@ -9,6 +9,8 @@ game_model.construct = function()
   self.stuff = { }
   self.wait_time = 0
   self.score = 0
+  self.health = 3
+  self.gameover = false
 
   return self
 end
@@ -45,16 +47,19 @@ game_model.new = function()
     for _, thing in pairs(self.stuff) do
       thing.update(dt)
     end
-
-    -- Should old stuff disappear?
   end
+
+  -- Collisions
+  -- ----------
 
   self.check_collisions = function()
     local surviving = { }
 
     for i, it in pairs(self.stuff) do
       if util.check_collision(self.cat, it) then
-         self.score = self.score + 1
+        self.score = self.score + 1
+      elseif it.y > love.graphics.getHeight() then
+        self.health = self.health - 1
       else
         table.insert(surviving, it)
       end

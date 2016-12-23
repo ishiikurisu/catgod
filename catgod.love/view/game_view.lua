@@ -29,6 +29,11 @@ game_view.new = function()
     end
   end
 
+  self.drawScoreboard = function(score, health)
+    love.graphics.setColor(255, 255, 255)
+    love.graphics.print("SCORE: " .. score .. " HEALTH: " .. health, 10, 10)
+  end
+
   return self
 end
 

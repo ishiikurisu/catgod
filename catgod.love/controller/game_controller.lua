@@ -46,6 +46,7 @@ game_controller.new = function()
     self.view.drawBackground()
     self.view.drawCat(self.model.cat)
     self.view.drawStuff(self.model.stuff)
+    self.view.drawScoreboard(self.model.score, self.model.health)
   end
 
   return self
