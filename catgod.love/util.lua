@@ -60,4 +60,16 @@ function util.store(player, score)
   love.filesystem.append(util.save_file, player .. " " .. score)
 end
 
+function util.splitstring(inputstr, sep)
+    if sep == nil then
+        sep = "%s"
+    end
+    local t={} ; i=1
+    for str in string.gmatch(inputstr, "([^"..sep.."]+)") do
+        t[i] = str
+        i = i + 1
+    end
+    return t
+end
+
 return util

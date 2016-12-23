@@ -1,6 +1,7 @@
 local mainmenu_view = require "view/mainmenu_view"
 local mainmenu_model = require "model/mainmenu_model"
 local game_controller = require "controller/game_controller"
+local scoreboard_controller = require "controller/scoreboard_controller"
 local mainmenu_controller = { }
 
 mainmenu_controller.construct = function()
@@ -48,8 +49,9 @@ mainmenu_controller.new = function()
 
     -- TODO Implement a scoreboard controller to be chosen when selection is 2.
     if current == 1 then
-      -- TODO Implement this game_controller
       next_controller = game_controller.new()
+    elseif current == 2 then
+      next_controller = scoreboard_controller.new()
     elseif current == 3 then
       love.event.quit()
     end
