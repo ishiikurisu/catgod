@@ -1,15 +1,27 @@
 local mainmenu_view = { }
 
-mainmenu_view.new = function()
+mainmenu_view.construct = function()
   local self = { }
 
+  self.choices = { }
+  for i = 1, 3 do
+    local choice = {  }
+    choice.x = 50
+    choice.y = i*50
+    choice.width = 100
+    choice.height = 50
+    table.insert(self.choices, choice)
+  end
+
+  return self
+end
+
+mainmenu_view.new = function()
+  local self = mainmenu_view.construct()
+
   self.draw = function(options, current)
+    love.graphics.setColor(255, 255, 255)
     for i, option in ipairs(options) do
-      if i == current then
-        love.graphics.setColor(0, 255, 255)
-      else
-        love.graphics.setColor(255, 255, 255)
-      end
       love.graphics.print(option, 50, i*50)
     end
   end

@@ -5,16 +5,8 @@ function love.load()
   current_controller = start.new()
 end
 
-function love.keyreleased(key)
-  if current_controller.push ~= nil then
-    current_controller.push(key)
-  end
-end
-
 function love.mousepressed(x, y, button, istouch)
-  if current_controller.press ~= nil then
-    current_controller.press(x, y)
-  end
+  current_controller.press(x, y)
 end
 
 function love.update(dt)

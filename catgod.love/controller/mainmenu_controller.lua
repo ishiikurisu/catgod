@@ -20,39 +20,34 @@ mainmenu_controller.new = function()
   -- Update methods
   -- ==============
 
-  self.push = function(key)
-    table.insert(self.actions, key)
+  self.press = function(x, y)
+    local action = { x = x, y = y }
+    for i, choice in ipairs(self.view.choices) do
+      if util.pressed(choice, action) then
+        table.insert(self.actions, i)
+      end
+    end
   end
 
   self.update = function(dt)
     local next_controller = self
-
     for _, action in pairs(self.actions) do
-      if action == "up" then
-        self.model.previous()
-      elseif action == "down" then
-        self.model.next()
-      elseif action == "space" then
-        next_controller = self.choose_next_controller()
-      end
+      next_controller = self.choose_next_controller(action)
     end
-
     self.actions = { }
     return next_controller
   end
 
   -- Will return a game_controller if the current selection is 1; or will close
   -- the game if the current selection is 3.
-  self.choose_next_controller = function()
+  self.choose_next_controller = function(action)
     local next_controller = self
-    local current = self.model.current
 
-    -- TODO Implement a scoreboard controller to be chosen when selection is 2.
-    if current == 1 then
+    if action == 1 then
       next_controller = game_controller.new()
-    elseif current == 2 then
+    elseif action == 2 then
       next_controller = scoreboard_controller.new()
-    elseif current == 3 then
+    elseif action == 3 then
       love.event.quit()
     end
 

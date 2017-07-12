@@ -23,15 +23,14 @@ end
 scoreboard_controller.new = function()
     local self = scoreboard_controller.construct()
 
-    self.push = function(key)
-        table.insert(self.actions, key)
+    self.press = function(x, y)
+        local action = { x = x, y = y }
+        table.insert(self.actions, action)
     end
 
     self.update = function(dt)
         for _, action in pairs(self.actions) do
-            if action == "space" then
-                return start.new()
-            end
+            return start.new()
         end
 
         self.actions = { }

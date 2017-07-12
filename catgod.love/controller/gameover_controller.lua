@@ -16,36 +16,14 @@ end
 gameover_controller.new = function(score)
     local self = gameover_controller.construct(score)
 
-    self.push = function(key)
-        table.insert(self.actions, key)
+    self.press = function(x, y)
+        local action = { x = x, y = y}
+        table.insert(self.actions, action)
     end
 
     self.update = function(dt)
         for _, action in pairs(self.actions) do
-            if action == "space" then
-                self.save()
-                return start.new()
-            elseif action == "right" then
-                self.current = self.current + 1
-                if self.current > #self.player then
-                    self.current = 1
-                end
-            elseif action == "left" then
-                self.current = self.current - 1
-                if self.current == 0 then
-                    self.current = #self.player
-                end
-            elseif action == "up" then
-                self.player[self.current] = self.player[self.current] - 1
-                if self.player[self.current] == 0 then
-                    self.player[self.current] = #util.alphabet
-                end
-            elseif action == "down" then
-                self.player[self.current] = self.player[self.current] + 1
-                if self.player[self.current] > #util.alphabet then
-                    self.player[self.current] = 1
-                end
-            end
+            return start.new()
         end
 
         self.actions = { }
