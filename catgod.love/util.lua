@@ -54,6 +54,7 @@ util.alphabet = { "A", "B", "C", "D", "E", "F", "G", "H", "I",
                   "J", "K", "L", "M", "N", "O", "P", "Q", "R",
                   "S", "T", "U", "V", "W", "X", "Y", "Z" }
 
+-- TODO Update the save filepath using Love's save directory
 util.save_file = "scoreboard.txt"
 
 function util.store(player, score)

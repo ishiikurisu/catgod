@@ -23,6 +23,7 @@ gameover_controller.new = function(score)
 
     self.update = function(dt)
         for _, action in pairs(self.actions) do
+            -- TODO Enable saving of stuff
             return start.new()
         end
 

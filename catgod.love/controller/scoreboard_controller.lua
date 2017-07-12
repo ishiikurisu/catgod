@@ -8,6 +8,7 @@ scoreboard_controller.construct = function()
 
     -- Loading scoreboard
     local size, _ = love.filesystem.getSize(util.save_file)
+    -- TODO Check if save file exist
     local contents, size = love.filesystem.read(util.save_file, size)
     contents = util.splitstring(contents, "\n")
     for _, content in pairs(contents) do
