@@ -18,9 +18,9 @@ thing_entity.construct = function()
   self.direction = direction
   self.x = x
   self.y = y
-  self.width = 16
-  self.height = 16
-  self.speed = love.math.random(2, 16)
+  self.width = 32
+  self.height = 32
+  self.speed = love.math.random(10, 60)
   self.pressed = false
 
   return self
