@@ -2,6 +2,7 @@ local mainmenu_view = require "view/mainmenu_view"
 local mainmenu_model = require "model/mainmenu_model"
 local game_controller = require "controller/game_controller"
 local scoreboard_controller = require "controller/scoreboard_controller"
+local gameover_controller = require "controller/gameover_controller"
 local mainmenu_controller = { }
 
 mainmenu_controller.construct = function()
@@ -44,7 +45,7 @@ mainmenu_controller.new = function()
     local next_controller = self
 
     if action == 1 then
-      next_controller = game_controller.new()
+      next_controller = gameover_controller.new(123) -- game_controller.new()
     elseif action == 2 then
       next_controller = scoreboard_controller.new()
     elseif action == 3 then
