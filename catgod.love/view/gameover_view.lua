@@ -13,7 +13,9 @@ gameover_view.construct = function()
   local thirdDown  = { x = x+100, y = y+100, width = 40, height = 50 }
   self.saveButton = { text = "Save",
                       x = 1*love.graphics.getWidth()/4,
-                      y = 3*love.graphics.getHeight()/4, }
+                      y = 3*love.graphics.getHeight()/4,
+                      width = 100,
+                      height = 100 }
   self.buttons = { firstUp,
                    firstDown,
                    secondUp,

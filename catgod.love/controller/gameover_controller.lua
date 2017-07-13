@@ -23,13 +23,50 @@ gameover_controller.new = function(score)
 
   self.update = function(dt)
     for _, action in pairs(self.actions) do
-
-      self.save()
-      return start.new()
+      local clicked = self.determineClickedButton(action)
+      if clicked == 0 then
+        self.save()
+        return start.new()
+      elseif clicked == 1 then
+        self.updateIndex(1, 1)
+      elseif clicked == 2 then
+        self.updateIndex(1, -1)
+      elseif clicked == 3 then
+        self.updateIndex(2, 1)
+      elseif clicked == 4 then
+        self.updateIndex(2, -1)
+      elseif clicked == 5 then
+        self.updateIndex(3, 1)
+      elseif clicked == 6 then
+        self.updateIndex(3, -1)
+      end
     end
 
     self.actions = { }
     return self
+  end
+
+  self.determineClickedButton = function(action)
+    if util.pressed(self.view.saveButton, action) then
+      return 0
+    end
+
+    for i, button in pairs(self.view.buttons) do
+      if util.pressed(button, action) then
+        return i
+      end
+    end
+
+    return -1
+  end
+
+  self.updateIndex = function(index, diff)
+    self.player[index] = self.player[index] + diff
+    if self.player[index] > #util.alphabet then
+      self.player[index] = 1
+    elseif self.player[index] == 0 then
+      self.player[index] = #util.alphabet
+    end
   end
 
   self.save = function()

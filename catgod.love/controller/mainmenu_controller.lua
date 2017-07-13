@@ -45,7 +45,7 @@ mainmenu_controller.new = function()
     local next_controller = self
 
     if action == 1 then
-      next_controller = gameover_controller.new(123) -- game_controller.new()
+      next_controller = game_controller.new()
     elseif action == 2 then
       next_controller = scoreboard_controller.new()
     elseif action == 3 then
