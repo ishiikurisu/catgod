@@ -41,7 +41,7 @@ scoreboard_controller.new = function()
   self.draw = function()
     if #self.scoreboard > 0 then
       for i, score in ipairs(self.scoreboard) do
-        love.graphics.print(i .. ". " .. score[1] .. " ... " .. score[2], 50, i*50)
+        love.graphics.print(i .. " " .. score[1] .. " " .. score[2], 50, i*50)
       end
     else
       love.graphics.print("No one has played this yet! Why not be the first?", 50, 50)
