@@ -22,6 +22,7 @@ gameover_view.construct = function()
                    secondDown,
                    thirdUp,
                    thirdDown }
+  self.images = { love.graphics.newImage("assets/arrow_up.png") }
 
   return self
 end
@@ -35,17 +36,14 @@ gameover_view.new = function()
 
     love.graphics.setColor(255, 0, 0)
     love.graphics.print("GAME OVER", x, y)
-    love.graphics.print("SCORE: " .. score, x, y + 50)
+    love.graphics.print("SCORE " .. score, x, y + 50)
 
     love.graphics.setColor(255, 255, 255)
     love.graphics.print(self.saveButton.text, self.saveButton.x, self.saveButton.y)
 
     love.graphics.setColor(255, 229, 43)
     for _, button in ipairs(self.buttons) do
-      love.graphics.rectangle("fill", button.x,
-                                      button.y,
-                                      button.width,
-                                      button.height)
+      love.graphics.draw(self.images[1], button.x, button.y)
     end
   end
 
