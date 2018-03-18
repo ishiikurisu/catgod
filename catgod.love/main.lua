@@ -3,7 +3,8 @@ util = require "util"
 
 function love.load()
   current_controller = start.new()
-  love.graphics.setNewFont(18)
+  mainFont = love.graphics.newFont("assets/8BIT.TTF", 18)
+  love.graphics.setFont(mainFont)
 end
 
 function love.mousepressed(x, y, button, istouch)

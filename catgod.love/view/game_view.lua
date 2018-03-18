@@ -30,8 +30,14 @@ game_view.new = function()
   end
 
   self.drawScoreboard = function(score, health)
+    local healthMeter = ""
+
+    for i = 1, health do
+      healthMeter = healthMeter .. "*"
+    end
+
     love.graphics.setColor(255, 255, 255)
-    love.graphics.print("SCORE: " .. score .. " HEALTH: " .. health, 10, 10)
+    love.graphics.print("SCORE " .. score .. "   HEALTH " .. healthMeter, 10, 10)
   end
 
   return self
