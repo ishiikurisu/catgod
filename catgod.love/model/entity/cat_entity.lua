@@ -8,7 +8,7 @@ cat_entity.construct = function()
   self.width = 128
   self.height = 20
   self.direction = -1
-  self.speed = 100
+  self.speed = 200
 
   return self
 end
